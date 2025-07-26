@@ -1,60 +1,57 @@
 # PartSelect Chat Agent
 
-A modern, AI-powered chat assistant for PartSelect, specializing in refrigerator and dishwasher parts assistance with professional UI design and intelligent tool integration.
+A modern, AI-powered chat assistant for PartSelect, specializing in refrigerator and dishwasher parts assistance with a professional UI and an advanced, multi-agent backend.
 
 ## 🚀 **Performance-First Design**
 
 **New in v2.0:** Performance mode is now the **default configuration**! Get fast 8-20 second responses out of the box with optional enhanced features when needed.
 
-| Mode | Response Time | Features | Usage |
+| Mode | Response Time | Features | How to Run |
 |------|---------------|----------|-------|
-| **Performance (Default)** | 8-20s | Fast chat + tools | `uvicorn main:app --reload` |
-| **Enhanced (Opt-in)** | 25-45s | All advanced features | `./start_enhanced.sh` |
+| **Performance (Default)** | 8-20s | Fast single-agent chat + all tools | `./start_server.sh` |
+| **Enhanced (Opt-in)** | 25-45s | Multi-agent system + Guardrails | `./start_enhanced.sh` |
 
 ## ✨ Features
 
 ### 🔍 **Core Functionality**
-- **Smart Part Search**: Find refrigerator and dishwasher parts by name, number, or model
-- **Compatibility Verification**: Check if parts work with specific appliance models
-- **Interactive Installation Guides**: Step-by-step instructions with visual formatting
-- **Intelligent Troubleshooting**: AI-powered diagnostic help for common appliance issues
-- **Smart Scope Management**: Automatically redirects non-refrigerator/dishwasher queries
-- **Detailed Part Information**: Comprehensive specifications, pricing, and availability
+- **Smart Part Search**: Find parts by name, number, or model from a local DB and simulated web search.
+- **Compatibility Verification**: Check if parts work with specific appliance models.
+- **Interactive Installation Guides**: Step-by-step instructions.
+- **Intelligent Troubleshooting**: AI-powered diagnostic help for common issues.
+- **Detailed Part Information**: Get specifications, pricing, and availability.
+- **Scope Management**: Politely deflects questions about appliances other than refrigerators and dishwashers.
 
 ### 🎨 **Enhanced Chat Experience**
-- **Rich Text Formatting**: Supports headers, numbered lists, bullet points, and emphasis
-- **Professional Message Layout**: Clean, responsive message bubbles with proper spacing
-- **Part Number Highlighting**: Automatic detection and highlighting of part numbers
-- **Price Display**: Enhanced formatting for pricing information
-- **Mobile-Responsive Design**: Optimized for all screen sizes
-- **Real-time Communication**: WebSocket support for instant responses
-- **Accessibility Features**: ARIA labels, screen reader support, and keyboard navigation
+- **Rich Text Formatting**: Supports headers, lists, bolding, and italics.
+- **Part Number Highlighting**: Automatically detects and styles part numbers for readability.
+- **Price Display**: Formats pricing information for clarity.
+- **Mobile-Responsive Design**: Fully optimized for all screen sizes.
+- **Real-time Communication**: WebSocket support for instant, bidirectional chat.
 
 ### 🤖 **AI-Powered Intelligence**
-- **Function Calling**: Dynamic tool usage based on user intent
-- **Context Awareness**: Maintains conversation history for better responses
-- **Error Recovery**: Intelligent retry logic with exponential backoff
-- **Multi-Model Support**: DeepSeek API with OpenAI fallback
-- **Structured Responses**: Automatically formatted output for better readability
-- **Performance-First**: Fast responses (8-20s) enabled by default
-- **Optional Advanced Features**: Guardrails & multi-agent system available when needed
+- **Dual-Mode Operation**: Choose between a fast single-agent system or a powerful multi-agent system.
+- **Function Calling**: Dynamic tool usage based on user intent.
+- **Multi-Model Support**: Defaults to DeepSeek, with a fallback to OpenAI.
+- **Hallucination Guardrail**: (Enhanced Mode) Validates AI responses against known data to prevent fabricated information.
+- **Multi-Agent System**: (Enhanced Mode) A sophisticated architecture with a `TriagingAgent` that routes queries to specialized agents for superior handling of complex questions.
+- **Web Search Simulation**: Tools that mimic searching a real parts website to find models, brands, and categories.
 
 ## 🛠️ Tech Stack
 
 ### Backend
-- **Python 3.8+**: Core runtime environment
-- **FastAPI**: Modern, fast web framework with automatic API documentation
-- **Uvicorn**: ASGI server for production-ready deployment
-- **OpenAI/DeepSeek API**: AI model integration with function calling
-- **WebSockets**: Real-time bidirectional communication
-- **Pydantic**: Data validation and serialization
-- **Tenacity**: Robust retry logic for API calls
+- **Python 3.8+**
+- **FastAPI**: Modern, high-performance web framework.
+- **Uvicorn**: ASGI server for production deployment.
+- **OpenAI/DeepSeek API**: For LLM-based reasoning.
+- **WebSockets**: For real-time communication.
+- **Pydantic**: For robust data validation and settings management.
+- **Tenacity**: For resilient API calls with retry logic.
 
 ### Frontend
-- **React 18**: Modern component-based UI library
-- **CSS3**: Advanced styling with custom properties and responsive design
-- **Axios**: HTTP client for API communication
-- **WebSocket API**: Real-time chat functionality
+- **React 18**
+- **CSS3**: Advanced styling for a professional look and feel.
+- **Axios**: HTTP client for API communication.
+- **WebSocket API**: Native browser API for real-time chat.
 
 ## 📋 Setup Instructions
 
@@ -62,359 +59,146 @@ A modern, AI-powered chat assistant for PartSelect, specializing in refrigerator
 
 - Python 3.8+
 - Node.js 16+
-- DeepSeek API key (recommended) or OpenAI API key
+- A `.env` file with a `DEEPSEEK_API_KEY` (recommended) or `OPENAI_API_KEY`.
 
 ### 🐍 Backend Setup
 
-1. **Navigate to the backend directory:**
-```bash
-cd backend
-```
+1.  **Navigate to the backend directory:**
+    ```bash
+    cd backend
+    ```
 
-2. **Create and activate virtual environment:**
-```bash
-python -m venv mypythonenv
-source mypythonenv/bin/activate  # On Windows: mypythonenv\Scripts\activate
-```
+2.  **Create and activate a virtual environment:**
+    ```bash
+    python3 -m venv mypythonenv
+    source mypythonenv/bin/activate  # On Windows: mypythonenv\Scripts\activate
+    ```
 
-3. **Install dependencies:**
-```bash
-pip install -r ../requirements.txt
-```
+3.  **Install dependencies:**
+    ```bash
+    pip install -r ../requirements.txt
+    ```
 
-4. **Configure environment variables:**
-Create a `.env` file in the project root:
-```env
-DEEPSEEK_API_KEY=your_deepseek_api_key  # Recommended
-OPENAI_API_KEY=your_openai_api_key      # Fallback option
-```
+4.  **Configure environment variables:**
+    Create a `.env` file in the **project root** (`instalily/.env`):
+    ```env
+    # Recommended: Get a free key from deepseek.com
+    DEEPSEEK_API_KEY="your_deepseek_api_key"
+    
+    # Fallback option
+    OPENAI_API_KEY="your_openai_api_key"
+    ```
 
-5. **Start the backend server:**
+5.  **Start the backend server:**
 
-**Option A: Performance Mode (Default - Recommended)**
-```bash
-uvicorn main:app --reload --port 8000
-# or use the startup script
-./start_server.sh
-```
-- ⚡ **Response Time:** 8-20 seconds
-- ✅ **Best for:** Production use, user-facing applications
-- 🎯 **Features:** Fast chat, tool calling, part search
+    **Option A: Performance Mode (Default - Recommended for most uses)**
+    ```bash
+    # Use the startup script for convenience
+    ./start_server.sh
+    ```
+    - ⚡ **Response Time:** 8-20 seconds
+    - ✅ **Best for:** Production use, user-facing applications.
+    - 🎯 **Features:** Fast chat, all 10 tools available via single-agent logic.
 
-**Option B: Enhanced Mode (Advanced Features)**
-```bash
-./start_enhanced.sh
-# or set manually
-export PERFORMANCE_MODE=false
-export GUARDRAIL_ENABLED=true
-export USE_MULTI_AGENT=true
-uvicorn main:app --reload --port 8000
-```
-- 🛡️ **Response Time:** 25-45 seconds
-- 🧠 **Best for:** Demos, research, maximum accuracy  
-- 🔬 **Features:** Multi-agent routing + guardrails + advanced validation
+    **Option B: Enhanced Mode (Advanced Features)**
+    ```bash
+    # Use the enhanced startup script
+    ./start_enhanced.sh
+    ```
+    - 🛡️ **Response Time:** 25-45 seconds
+    - 🧠 **Best for:** Demos, research, and handling complex queries with maximum accuracy.
+    - 🔬 **Features:** Multi-agent routing, hallucination guardrails, and advanced validation.
 
-✅ Backend available at `http://localhost:8000`
+    ✅ The backend will be available at `http://localhost:8000`.
 
 ### ⚛️ Frontend Setup
 
-1. **Navigate to frontend directory:**
-```bash
-cd frontend
-```
+1.  **Navigate to the frontend directory:**
+    ```bash
+    cd frontend
+    ```
 
-2. **Install dependencies:**
-```bash
-npm install
-```
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-3. **Start the development server:**
-```bash
-npm start
-```
-✅ Frontend available at `http://localhost:3000`
-
-## 🎯 Usage Examples
-
-Open `http://localhost:3000` and try these example queries:
-
-### 📦 **Part Installation**
-```
-"How can I install part PS11752778?"
-```
-*AI will use the `get_installation_guide` tool to provide: difficulty level, time estimate, tools required, and step-by-step instructions*
-
-### 🔧 **Compatibility Check**
-```
-"Is part WPW10082853 compatible with WDT780SAEM1?"
-```
-*AI will use the `check_compatibility` tool to show: compatibility status, alternative parts, and model-specific notes*
-
-### 🛠️ **Troubleshooting**
-```
-"My ice maker isn't working"
-```
-*AI will use the `get_troubleshooting_guide` tool to provide: diagnostic questions, common causes, and solution steps*
-
-### 🔍 **Part Search**
-```
-"Find water filters for Whirlpool fridge"
-```
-*AI will use the `search_parts` tool to show: compatible filters, specifications, and installation guides*
-
-### 📋 **Part Details**
-```
-"What's the price of part PS11752778?"
-```
-*AI will use the `get_part_details` tool to provide: pricing, specifications, availability, and warranty information*
-
-## ⚙️ Configuration & Environment Variables
-
-### 🚀 **Default Configuration (Performance Mode)**
-No configuration needed! The system now defaults to fast responses:
-
-```bash
-# Default values (no env vars required)
-PERFORMANCE_MODE=true          # Fast processing (8-20s responses)
-GUARDRAIL_ENABLED=false        # No guardrail delays
-USE_MULTI_AGENT=false          # Single agent for speed
-```
-
-### 🛡️ **Enhanced Mode Configuration**
-For advanced features, set these environment variables:
-
-```bash
-# Enhanced mode (slower but more intelligent)
-PERFORMANCE_MODE=false         # Full processing
-GUARDRAIL_ENABLED=true         # Enable hallucination detection
-USE_MULTI_AGENT=true           # Multi-agent query routing
-GUARDRAIL_PRESET=balanced      # strict|balanced|lenient|monitoring_only
-GUARDRAIL_THRESHOLD=0.7        # Confidence threshold (0.0-1.0)
-```
-
-### 🎯 **Quick Start Commands**
-
-| Goal | Command | Expected Time |
-|------|---------|---------------|
-| **Fast responses (default)** | `uvicorn main:app --reload` | 8-20 seconds |
-| **All features enabled** | `./start_enhanced.sh` | 25-45 seconds |
-| **Custom configuration** | Set env vars + `uvicorn main:app --reload` | Varies |
+3.  **Start the development server:**
+    ```bash
+    npm start
+    ```
+    ✅ The frontend will be available at `http://localhost:3000`.
 
 ## 📁 Project Structure
 
 ```
 instalily/
 ├── backend/
-│   ├── main.py                 # FastAPI application with REST and WebSocket APIs
+│   ├── main.py                 # FastAPI app: REST & WebSocket endpoints
 │   ├── agents/
-│   │   ├── __init__.py         # Clean module exports
-│   │   ├── base_agent.py       # Abstract base class with AI integration
-│   │   ├── parts_agent.py      # PartSelect-specific agent implementation
-│   │   └── tools.py            # Function calling tools (5 core functions)
+│   │   ├── base_agent.py       # Abstract base class for agents
+│   │   ├── parts_agent.py      # Main agent logic, tool definitions
+│   │   ├── tools.py            # Core tools for local data (search, compat)
+│   │   ├── partselect_web_tools.py # Tools for simulating web search
+│   │   ├── multi_agent_system.py # Orchestrator for Enhanced Mode
+│   │   ├── hallucination_guardrail.py # Validates LLM output
+│   │   └── structured_outputs.py # Pydantic models for agent responses
 │   ├── data/
-│   │   └── parts_database.json # Comprehensive mock parts database
-│   ├── models/
-│   │   ├── __init__.py
-│   │   └── schemas.py          # Pydantic models for type safety
+│   │   └── parts_database.json # Mock parts database
 │   └── utils/
-│       ├── __init__.py
-│       └── prompts.py          # Optimized system prompts
+│       └── prompts.py          # System prompts for the LLM
 ├── frontend/
 │   ├── src/
-│   │   ├── App.js              # Main React application
-│   │   ├── index.css           # Global styles and CSS reset
+│   │   ├── App.js              # Main React application component
 │   │   ├── components/
-│   │   │   ├── ChatInterface.js    # Chat UI with WebSocket integration
-│   │   │   ├── Message.js          # Advanced message formatting component
-│   │   │   └── ProductCard.js      # Product display component
+│   │   │   ├── ChatInterface.js # The main chat UI
+│   │   │   └── Message.js      # Component for rendering individual messages
 │   │   └── styles/
-│   │       └── App.css         # Professional styling with design system
-│   ├── package.json            # React dependencies
+│   │       └── App.css         # Professional styling and design system
+│   ├── package.json
 │   └── public/
-│       └── index.html          # HTML template
-├── mypythonenv/               # Python virtual environment
-├── requirements.txt           # Python dependencies (streamlined)
-├── .env                      # Environment configuration
-└── README.md
+│       └── index.html
+├── .gitignore
+├── README.md
+└── requirements.txt
 ```
 
 ## 🔌 API Endpoints
 
-| Method | Endpoint | Description | Response Format |
-|--------|----------|-------------|----------------|
-| `GET` | `/` | API health check | `{"message": "PartSelect Chat Agent API"}` |
-| `POST` | `/chat` | Send chat message (REST) | `ChatResponse` object |
-| `WS` | `/ws/{client_id}` | WebSocket for real-time chat | JSON messages |
-| `GET` | `/health` | Detailed health status | `{"status": "healthy"}` |
-
-### Chat API Schema
-```json
-// Request
-{
-  "message": "How can I install part PS11752778?",
-  "conversation_id": "user_session_123"
-}
-
-// Response
-{
-  "message": "Here are the installation instructions...",
-  "timestamp": "2024-01-15T10:30:00",
-  "agent": "PartSelect Assistant"
-}
-```
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/` | API root, returns a welcome message. |
+| `POST` | `/chat` | Send a chat message via REST. |
+| `WS` | `/ws/{client_id}` | Establish a real-time chat connection. |
+| `GET` | `/health` | Health check endpoint. |
 
 ## 🛠️ Available Tools
 
-The AI agent has access to 5 specialized tools:
+The agent system has access to 10 specialized tools across two modules:
 
-| Tool | Function | Purpose |
-|------|----------|---------|
-| **search_parts** | `search_parts(query, appliance_type)` | Find parts by keyword, model, or part number |
-| **check_compatibility** | `check_compatibility(part_number, model_number)` | Verify part compatibility with appliance models |
-| **get_installation_guide** | `get_installation_guide(part_number)` | Get step-by-step installation instructions |
-| **get_troubleshooting_guide** | `get_troubleshooting_guide(issue, appliance_type)` | Diagnostic help for appliance problems |
-| **get_part_details** | `get_part_details(part_number)` | Comprehensive part information and specifications |
-
-## 🎨 Message Formatting Features
-
-The chat interface automatically formats AI responses with:
-
-- **📋 Headers**: `### Installation Steps` → Styled section headers with underlines
-- **📝 Numbered Lists**: `1. Step one` → Circular numbered badges with proper spacing
-- **• Bullet Points**: `* Important note` → Clean bullet formatting with consistent margins
-- **🔧 Part Numbers**: `PS11752778` → Highlighted with gradient background and monospace font
-- **💰 Pricing**: `$45.99` → Green highlighted prices for easy identification
-- **📊 Key-Value Pairs**: `Difficulty: Easy` → Structured info rows with left borders
-- **✨ Text Emphasis**: `**bold**` and `*italic*` → Proper HTML formatting
-- **⚠️ Error States**: Clear error indicators with appropriate styling
+| Tool | Source File | Purpose |
+|------|-------------|---------|
+| `search_parts` | `tools.py` | Find parts by keyword, model, or part number from local DB. |
+| `check_compatibility` | `tools.py` | Verify part compatibility with appliance models. |
+| `get_installation_guide`| `tools.py` | Get step-by-step installation instructions. |
+| `get_troubleshooting_guide`| `tools.py` | Diagnostic help for appliance problems. |
+| `get_part_details` | `tools.py` | Get all details for a specific part number. |
+| `search_partselect_web`| `partselect_web_tools.py`| Simulate searching the PartSelect website. |
+| `validate_model_number`| `partselect_web_tools.py`| Check if a model number is valid based on known data. |
+| `get_popular_models` | `partselect_web_tools.py`| Get a list of popular appliance models. |
+| `get_part_categories` | `partselect_web_tools.py`| Get a list of available part categories. |
+| `get_brands` | `partselect_web_tools.py`| Get a list of available appliance brands. |
 
 ## 🏗️ Architecture Overview
 
-### Agent Framework
-```
-BaseAgent (Abstract)
-    ↓
-PartsAgent (Concrete)
-    ↓
-Tools Integration (5 functions)
-    ↓
-Mock Database (JSON)
-```
+The system features a dual architecture that can be toggled via environment variables.
 
-### Key Components
+### 1. Performance-Mode Architecture (Default)
+A straightforward **single-agent system** where the `PartsAgent` directly processes user input, selects from all 10 available tools using the LLM's function-calling ability, and generates a response. It is optimized for speed and efficiency.
 
-1. **BaseAgent**: Abstract class providing:
-   - OpenAI/DeepSeek API integration
-   - Function calling orchestration
-   - Conversation management
-   - Error handling with retry logic
-   - Tool execution framework
-
-2. **PartsAgent**: Concrete implementation with:
-   - PartSelect-specific system prompts
-   - Scope checking (refrigerator/dishwasher only)
-   - Tool definitions and mappings
-   - Enhanced error messages
-
-3. **Tools Module**: Core functions for:
-   - Part searching with fuzzy matching
-   - Compatibility verification
-   - Installation guide generation
-   - Troubleshooting assistance
-   - Detailed part information
-
-## 🚀 Extending the System
-
-### Adding New Appliance Types
-
-1. **Update Database**: Modify `backend/data/parts_database.json` with new appliance data
-2. **Scope Logic**: Update `_is_in_scope()` method in `PartsAgent`
-3. **System Prompts**: Enhance prompts in `backend/utils/prompts.py`
-4. **Tool Enums**: Add new appliance types to tool parameter definitions
-
-### Adding New Tools/Functions
-
-1. **Tool Functions**: Create new async functions in `backend/agents/tools.py`
-2. **Tool Definitions**: Add tool schemas to `get_tools()` in `PartsAgent`
-3. **Tool Execution**: Update `_execute_tool()` method to handle new functions
-4. **Frontend Support**: Add UI components for new tool response formats
-
-### Database Integration
-
-1. **Replace Mock Data**: Connect `tools.py` functions to real databases/APIs
-2. **Add Caching**: Implement Redis or in-memory caching for performance
-3. **Search Enhancement**: Add vector search for semantic part matching
-4. **Real-time Updates**: Implement inventory sync and price updates
-
-## 🔧 Development Features
-
-- **🚀 Performance-First Architecture**: 8-20s default responses, enhanced features opt-in
-- **🤖 Multi-Provider AI**: DeepSeek primary, OpenAI fallback with automatic switching
-- **📊 Comprehensive Mock Data**: 50+ realistic parts with full specifications
-- **⚡ WebSocket Support**: Real-time chat with connection management
-- **🎯 Function Calling**: Dynamic tool selection based on user intent
-- **🔄 Retry Logic**: Exponential backoff for API resilience
-- **🛡️ Optional Guardrails**: Hallucination detection when enabled
-- **🧠 Multi-Agent System**: Advanced query routing (opt-in)
-- **📱 Mobile-First Design**: Responsive UI optimized for all devices
-- **♿ Accessibility**: ARIA labels, keyboard navigation, screen reader support
-
-## 🎯 Key Features Implemented
-
-### Backend Excellence
-- ✅ **Clean Architecture** with abstract base classes and inheritance
-- ✅ **Robust Error Handling** with tenacity retry logic
-- ✅ **Type Safety** with Pydantic models and type hints
-- ✅ **Comprehensive Logging** for debugging and monitoring
-- ✅ **Environment Configuration** with dotenv support
-- ✅ **API Documentation** with FastAPI automatic OpenAPI generation
-
-### Frontend Excellence
-- ✅ **Professional UI Design** with modern CSS and design tokens
-- ✅ **Rich Text Processing** with automatic content formatting
-- ✅ **Responsive Layout** optimized for mobile and desktop
-- ✅ **Accessibility Features** with ARIA roles and keyboard support
-- ✅ **Real-time Communication** with WebSocket integration
-- ✅ **Loading States** with typing indicators and smooth animations
-
-### AI Integration
-- ✅ **Performance-First Defaults** with 8-20 second response times
-- ✅ **Smart Tool Selection** based on user query analysis
-- ✅ **Context Management** with conversation history
-- ✅ **Scope Validation** to keep conversations on-topic
-- ✅ **Structured Responses** with consistent formatting
-- ✅ **Error Recovery** with graceful fallback handling
-- ✅ **Optional Advanced Features** (guardrails, multi-agent) when needed
-
-## 🔮 Future Enhancement Opportunities
-
-- 🛒 **E-commerce Integration**: Shopping cart and order management
-- 🌐 **Multi-language Support**: I18n for global markets
-- 👤 **User Accounts**: Personalized chat history and preferences
-- 🎤 **Voice Interface**: Speech-to-text and voice responses
-- 📊 **Analytics Dashboard**: Usage metrics and performance tracking
-- 🔍 **Vector Search**: Semantic similarity for better part matching
-- 📸 **Image Recognition**: Visual part identification from photos
-- 🔔 **Notifications**: Stock alerts and maintenance reminders
-- 🎨 **Theme System**: Dark mode and customizable UI themes
-- 📱 **Mobile App**: Native iOS and Android applications
-
-## 🏆 Technical Highlights
-
-This implementation demonstrates:
-
-- **🚀 Performance-First Design**: Default 8-20s responses, 3-5x faster than v1.0
-- **🎨 Production-Ready UI**: Professional design with comprehensive formatting
-- **🏗️ Scalable Architecture**: Clean separation of concerns with modular design
-- **🔧 High Maintainability**: Well-documented code with clear abstractions
-- **🎯 Accurate AI Responses**: Leverages realistic mock data for authentic interactions
-- **📱 Cross-Platform Compatibility**: Works seamlessly across all modern browsers
-- **⚡ Performance Optimized**: Efficient state management and API communication
-- **🛡️ Optional Intelligence**: Advanced features available when needed
-- **♿ Accessibility Compliant**: Follows WCAG guidelines for inclusive design
-
----
-
-**Ready to provide exceptional parts assistance!** 🚀
-
-*Built with modern web technologies and AI-powered intelligence.*# partselect_chat
+### 2. Enhanced-Mode Architecture
+A sophisticated **multi-agent system** orchestrated by `MultiAgentOrchestrator`:
+1.  **Triage**: A `TriagingAgent` first classifies the user's query and routes it.
+2.  **Specialization**: The query is sent to a specialized agent (`ProductSearchAgent`, `ModelLookupAgent`, or `WebSearchAgent`).
+3.  **Execution**: The specialized agent executes its task, which may involve calling multiple tools in sequence or parallel.
+4.  **Guardrail**: Before sending the final response to the user, the `HallucinationGuardrail` validates it for factual accuracy against the database. This adds a layer of safety and reliability at the cost of increased latency.
