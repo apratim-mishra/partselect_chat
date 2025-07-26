@@ -1,0 +1,270 @@
+{
+    "parts": [
+      {
+        "part_number": "PS11752778",
+        "name": "Refrigerator Door Bin",
+        "description": "Clear door bin for refrigerator door storage. Holds condiments, beverages, and small items.",
+        "category": "door_bin",
+        "manufacturer": "Whirlpool",
+        "price": 45.99,
+        "in_stock": true,
+        "appliance_type": "refrigerator",
+        "compatible_models": ["WDT780SAEM1", "WRF555SDFZ", "WRX735SDBM", "WRF535SWHZ", "WRS325SDHZ"],
+        "installation_difficulty": "Easy",
+        "installation_time": "5-10 minutes",
+        "tools_required": ["None"],
+        "installation_guide": [
+          "Open the refrigerator door fully",
+          "Lift the old bin up and out of the door slots",
+          "Align the new bin with the door slots",
+          "Push down firmly until the bin clicks into place",
+          "Test by gently pulling to ensure secure fit"
+        ],
+        "specifications": {
+          "width": "14.5 inches",
+          "height": "6 inches", 
+          "depth": "5 inches",
+          "material": "Clear plastic"
+        },
+        "oem_part_numbers": ["W10451874", "2309119"],
+        "rating": 4.6,
+        "review_count": 245
+      },
+      {
+        "part_number": "WPW10082853",
+        "name": "Dishwasher Door Latch",
+        "description": "Door latch assembly for dishwasher. Ensures door closes securely and activates door switch.",
+        "category": "door_latch",
+        "manufacturer": "Whirlpool",
+        "price": 68.45,
+        "in_stock": true,
+        "appliance_type": "dishwasher",
+        "compatible_models": ["WDT780SAEM1", "WDTA50SAHZ", "WDF520PADM", "WDT730PAHZ", "WDT710PAHZ"],
+        "installation_difficulty": "Medium",
+        "installation_time": "20-30 minutes",
+        "tools_required": ["Phillips screwdriver", "Torx T20 screwdriver"],
+        "installation_guide": [
+          "Turn off power to dishwasher at circuit breaker",
+          "Open dishwasher door and remove dish racks",
+          "Remove screws from inner door panel",
+          "Carefully separate inner and outer door panels",
+          "Disconnect old latch wiring harness",
+          "Remove mounting screws and old latch",
+          "Install new latch with mounting screws",
+          "Reconnect wiring harness",
+          "Reassemble door panels",
+          "Restore power and test operation"
+        ],
+        "specifications": {
+          "type": "Strike latch",
+          "voltage": "120V",
+          "includes": "Latch assembly and strike"
+        },
+        "rating": 4.3,
+        "review_count": 156
+      },
+      {
+        "part_number": "W10190965",
+        "name": "Ice Maker Control Module", 
+        "description": "Electronic control module for refrigerator ice maker. Controls ice production cycle and motor operation.",
+        "category": "ice_maker",
+        "manufacturer": "Whirlpool",
+        "price": 89.99,
+        "in_stock": true,
+        "appliance_type": "refrigerator",
+        "compatible_models": ["WRF555SDFZ", "WRX735SDBM", "WRF535SWHZ", "WRS325SDHZ", "WRF560SMHZ"],
+        "installation_difficulty": "Medium",
+        "installation_time": "15-25 minutes",
+        "tools_required": ["1/4 inch nut driver", "Flat-head screwdriver"],
+        "installation_guide": [
+          "Unplug refrigerator or turn off power",
+          "Remove ice bin from freezer",
+          "Remove mounting screws from ice maker",
+          "Disconnect wire harness from old module",
+          "Remove old control module by releasing tabs",
+          "Install new module by pressing firmly until tabs lock",
+          "Reconnect wire harness",
+          "Reinstall ice maker with mounting screws",
+          "Replace ice bin",
+          "Restore power and run test cycle"
+        ],
+        "specifications": {
+          "compatible_with": "Modular ice makers",
+          "includes": "Control module and instructions"
+        },
+        "rating": 4.4,
+        "review_count": 389
+      },
+      {
+        "part_number": "W10712395", 
+        "name": "Dishwasher Upper Spray Arm",
+        "description": "Upper spray arm distributes water to clean dishes in upper rack. Replace if cracked or clogged.",
+        "category": "spray_arm",
+        "manufacturer": "Whirlpool",
+        "price": 34.50,
+        "in_stock": true,
+        "appliance_type": "dishwasher",
+        "compatible_models": ["WDT780SAEM1", "WDTA50SAHZ", "WDF520PADM", "WDT730PAHZ", "KDTM404KPS"],
+        "installation_difficulty": "Easy",
+        "installation_time": "5-10 minutes",
+        "tools_required": ["None"],
+        "installation_guide": [
+          "Remove upper dish rack",
+          "Twist old spray arm counterclockwise to remove",
+          "Clean spray arm mount of any debris",
+          "Align new spray arm with mount",
+          "Twist clockwise until it locks in place",
+          "Spin spray arm to ensure free movement",
+          "Replace upper dish rack"
+        ],
+        "specifications": {
+          "material": "Plastic",
+          "color": "Gray",
+          "diameter": "8 inches"
+        },
+        "rating": 4.7,
+        "review_count": 523
+      },
+      {
+        "part_number": "WPW10219463",
+        "name": "Refrigerator Water Filter",
+        "description": "Water filter reduces contaminants and improves taste. Replace every 6 months.",
+        "category": "water_filter", 
+        "manufacturer": "Whirlpool",
+        "price": 42.99,
+        "in_stock": true,
+        "appliance_type": "refrigerator",
+        "compatible_models": ["WRF555SDFZ", "WRX735SDBM", "WRF535SWHZ", "WRS325SDHZ", "WRF757SDHZ"],
+        "installation_difficulty": "Easy",
+        "installation_time": "2-5 minutes",
+        "tools_required": ["None"],
+        "installation_guide": [
+          "Locate filter compartment (usually upper right corner of refrigerator)",
+          "Turn old filter counterclockwise 1/4 turn",
+          "Pull filter straight out",
+          "Remove protective caps from new filter",
+          "Push new filter in and turn clockwise 1/4 turn",
+          "Run 2-3 gallons of water through dispenser to flush",
+          "Reset filter indicator if applicable"
+        ],
+        "specifications": {
+          "capacity": "200 gallons",
+          "life": "6 months",
+          "certifications": "NSF certified"
+        },
+        "rating": 4.5,
+        "review_count": 1250
+      }
+    ],
+    "troubleshooting_guides": {
+      "refrigerator": [
+        {
+          "issue": "Ice maker not working",
+          "keywords": ["ice", "not making ice", "no ice", "ice maker"],
+          "causes": [
+            "Water supply turned off or frozen",
+            "Faulty control module",
+            "Ice maker turned off",
+            "Control arm in wrong position",
+            "Clogged water filter"
+          ],
+          "solutions": [
+            "Check water supply valve is open",
+            "Ensure ice maker is turned on",
+            "Check control arm is in down position",
+            "Replace water filter if over 6 months old",
+            "Check for frozen water line - thaw if needed",
+            "Test water inlet valve",
+            "Replace control module if other solutions fail"
+          ],
+          "related_parts": ["W10190965", "WPW10219463"],
+          "difficulty": "Medium",
+          "professional_help": "If ice maker motor doesn't cycle after troubleshooting"
+        },
+        {
+          "issue": "Water leaking from refrigerator",
+          "keywords": ["leak", "water", "puddle", "dripping"],
+          "causes": [
+            "Clogged defrost drain",
+            "Damaged door seal",
+            "Cracked water line",
+            "Faulty water inlet valve",
+            "Improper leveling"
+          ],
+          "solutions": [
+            "Clear defrost drain with warm water",
+            "Inspect and clean door seals",
+            "Check water lines for cracks",
+            "Ensure refrigerator is level",
+            "Tighten water line connections",
+            "Replace damaged components"
+          ],
+          "related_parts": [],
+          "difficulty": "Easy to Medium"
+        }
+      ],
+      "dishwasher": [
+        {
+          "issue": "Dishwasher not cleaning dishes properly",
+          "keywords": ["not cleaning", "dirty dishes", "spots", "film"],
+          "causes": [
+            "Clogged spray arms",
+            "Insufficient water temperature",
+            "Improper loading",
+            "Hard water buildup",
+            "Worn door seals"
+          ],
+          "solutions": [
+            "Remove and clean spray arms",
+            "Check water heater temperature (120°F)",
+            "Don't overcrowd dishes",
+            "Use rinse aid for hard water",
+            "Clean dishwasher with vinegar cycle",
+            "Replace spray arms if damaged"
+          ],
+          "related_parts": ["W10712395"],
+          "difficulty": "Easy"
+        },
+        {
+          "issue": "Dishwasher door won't latch",
+          "keywords": ["door", "latch", "won't close", "won't start"],
+          "causes": [
+            "Misaligned door",
+            "Faulty door latch",
+            "Bent door",
+            "Obstruction in door seal"
+          ],
+          "solutions": [
+            "Check for obstructions in door path",
+            "Adjust door alignment",
+            "Inspect latch for damage",
+            "Clean door seal",
+            "Replace door latch if broken"
+          ],
+          "related_parts": ["WPW10082853"],
+          "difficulty": "Medium",
+          "professional_help": "If door is bent or frame is damaged"
+        }
+      ]
+    },
+    "default_guides": {
+      "installation": {
+        "door_bin": [
+          "Remove old part by lifting up and out",
+          "Clean mounting area",
+          "Align new part with mounting slots",
+          "Push firmly until it clicks in place",
+          "Test fit and stability"
+        ],
+        "control_module": [
+          "Turn off power to appliance",
+          "Access module location", 
+          "Disconnect wiring harness",
+          "Remove mounting screws",
+          "Install new module",
+          "Reconnect wiring",
+          "Restore power and test"
+        ]
+      }
+    }
+  }
